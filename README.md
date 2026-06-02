@@ -57,6 +57,13 @@ spaceagro-network
 
 ---
 
+## 🖼 Arquitetura Macro
+
+![Arquitetura SpaceAgro Monitor](docs/arquitetura-spaceagro-monitor.png.png)
+
+A solução é composta por dois containers Docker integrados através da rede Docker `spaceagro-network`.
+---
+
 # 🛠 Tecnologias Utilizadas
 
 * Java 21
