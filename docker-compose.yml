@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  postgres-rm554914:
+    image: postgres:16
+    container_name: postgres-rm554914
+    environment:
+      POSTGRES_DB: spaceagro
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - spaceagro-network
+
+  spaceagro-monitor-rm554914:
+    build: .
+    container_name: spaceagro-monitor-rm554914
+    environment:
+      DB_URL: jdbc:postgresql://postgres-rm554914:5432/spaceagro
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      APP_NAME: spaceagro-monitor
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres-rm554914
+    networks:
+      - spaceagro-network
+
+volumes:
+  postgres_data:
+
+networks:
+  spaceagro-network:
+    driver: bridge

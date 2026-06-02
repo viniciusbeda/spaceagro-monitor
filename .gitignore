@@ -1,0 +1,14 @@
+target/
+*.iml
+*.class
+.DS_Store
+.idea/
+.vscode/
+**/mvnw
+**/mvnw.cmd
+
+# Lombok generated files
+**/generated-sources/
+
+# Spring Boot
+logs/
